@@ -113,12 +113,12 @@ void help(void) {
 }
 
 void smallest(float s[], int size) {
-	double min, max;
+	float min, max;
 
-	cout << "Please enter minimum value for array: ";
+	cout << "Please enter minimum value for array s[]: ";
 	cin >> min;
 
-	cout << "Please enter maximum value for array: ";
+	cout << "Please enter maximum value for array s[]: ";
 	cin >> max;
 	
 	for (int i = 0; i < size; i++)
@@ -141,7 +141,7 @@ int sizeOfArray(void) {
 		
 		if ((i > 0) && (i <= 12))
 			break;
-		cout << "Integer must be > 0 and <= 12.\n";
+		cout << "Invalid selection.\n";
 	}
 
 	return i;
@@ -178,13 +178,15 @@ int frequency(float s[], float smallestNo, int myS) {
 //lower right
 void display(float s[], float smallestNo, int freq, int myS) {
 	
+	char c;
+	cout << "\n";
 	for (int i = 0; i < myS; i++)
-		cout << setprecision(2) << "s[" << i << "] = " << s[i] << "\n";
+		cout << fixed << setprecision(2) << "s[" << i << "] = " << s[i] << "\n";
 
-	cout << setprecision(2) << "Smallest no. = " << smallestNo << "\tFrequency: "
-		<< freq << "\n\t\t\t\tStrike any key to continue...";
+	cout << fixed << setprecision(2) << "Smallest no. = " << smallestNo << 
+		"\tFrequency: " << freq << "\n\t\t\t\tStrike any key to continue...";
 	
-	cin.get();
+	cin >> c;
 	system("cls");
 	return;
 
