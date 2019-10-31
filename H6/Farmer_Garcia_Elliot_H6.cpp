@@ -24,7 +24,9 @@ Q to Quit.
 */
 
 #include <iostream>
+#include <iomanip>
 #include <string>
+
 using namespace std;
 
 void help(void);
@@ -43,7 +45,7 @@ int main(void) {
 
 	//variable set by user to call the desired operation
 	char op;
-	int size;
+	
 	float s[12];
 
 	//strings for menu handling
@@ -111,7 +113,22 @@ void help(void) {
 }
 
 void smallest(float s[], int size) {
+	double min, max;
 
+	cout << "Please enter minimum value for array: ";
+	cin >> min;
+
+	cout << "Please enter maximum value for array: ";
+	cin >> max;
+	
+	for (int i = 0; i < size; i++)
+		s[i] = min + (rand() / (RAND_MAX / (max - min)));
+
+	float smallestNo = findSmallest(s, size);
+	int freq = frequency(s, smallestNo, size);
+	display(s, smallestNo, freq, size);
+
+	return;
 }
 
 int sizeOfArray(void) {
@@ -133,12 +150,42 @@ int sizeOfArray(void) {
 
 float findSmallest(float s[], int myS) {
 
+	float smallestNo = s[0];
+
+	for (int i = 1; i < myS; i++) {
+		if (s[i] < smallestNo)
+			smallestNo = s[i];
+	}
+
+	return smallestNo;
+
 }
 
 int frequency(float s[], float smallestNo, int myS) {
 
+	int freq = 0;
+
+	for (int i = 0; i < myS; i++) {
+		if (smallestNo == s[i])
+			freq++;
+	}
+
+	return freq;
+
 }
 
+
+//lower right
 void display(float s[], float smallestNo, int freq, int myS) {
+	
+	for (int i = 0; i < myS; i++)
+		cout << setprecision(2) << "s[" << i << "] = " << s[i] << "\n";
+
+	cout << setprecision(2) << "Smallest no. = " << smallestNo << "\tFrequency: "
+		<< freq << "\n\t\t\t\tStrike any key to continue...";
+	
+	cin.get();
+	system("cls");
+	return;
 
 }
