@@ -4,7 +4,7 @@ Programmer          : Elliot Farmer Garcia
 Course / Section    : ELET 2300 - 07 / 23493
 Instructor          : Dr. F. Attarzadeh
 Date Assigned       : 10/31/2019
-Date Modified       : 11/01/2019
+Date Modified       : 11/07/2019
 Due Date            : 11/12/2019
 Compiler            : Microsoft Visual Studio Enterprise 2019
 Environment         : Console Applications
@@ -14,14 +14,11 @@ Operating System    : Windows 7
 /*
 Problem Statement
 
-This is a menu-driven program allowing the user to select various operations
-to be performed on 1 or 2 integers. The user selects the group of operations
-they wish to use by entering the operation's initial, followed by a 1 or 2
-to indicate the particular operation they wish to perform, and finally
-enter the two integers they wish to perform the operation on.
-The operations are separated into Arithmetic (addition and multiplication),
-Relational (!= and >=), and Logical (AND and OR), as well as a Help section.
-Q to Quit.
+This is a menu-driven program which finds the smallest number in a
+user-specified range of randomly generated elements, in an array of
+user-specified size, up to 12 elements.
+
+Output is aligned to the default Windows 7 terminal size, 80x25.
 */
 
 #include <iostream>
@@ -126,8 +123,8 @@ void help(void) {
 
 //smallest() is the principal function of the program. It acquires an array
 //size from the user and error-checks it, acquires minimum and maximum element
-//values for the array, finds the smallest array element and its frequency,
-//mostly by calling the relevant helper function.
+//values for the array, and finds the smallest array element and its 
+//frequency, mostly by calling the relevant helper function.
 void smallest(float s[], int size) {
 
     //get array size
@@ -173,7 +170,7 @@ void smallest(float s[], int size) {
 
 //Acquires the size of the array from the user. Its value is error-checked
 //by smallest() to ensure it is greater than 0 and no greater than size
-//(const int defined in main())
+//(const int defined in main()).
 int sizeOfArray(void) {
 
     int i;
@@ -185,7 +182,7 @@ int sizeOfArray(void) {
 
 }
 
-//Finds the smallest value in s[] up to s[myS]
+//finds the smallest value in s[] up to s[myS]
 float findSmallest(float s[], int myS) {
 
     //assume first element is smallestNo
@@ -200,7 +197,7 @@ float findSmallest(float s[], int myS) {
 
 }
 
-//Determines how frequently smallestNo appears, up to s[myS].
+//determines how frequently smallestNo appears up to s[myS]
 int frequency(float s[], float smallestNo, int myS) {
 
     //assumes smallestNo appears 0 times
@@ -217,7 +214,7 @@ int frequency(float s[], float smallestNo, int myS) {
 
 
 //Prints array s[] up to s[myS], and the results of findSmallest() and
-//frequency().
+//frequency()
 void display(float s[], float smallestNo, int freq, int myS) {
 
     //prints specified array
